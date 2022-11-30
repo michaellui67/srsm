@@ -1,0 +1,15 @@
+{
+    "name": "lui/srsm",
+    "autoload": {
+        "psr-4": {
+            "Lui\\Srsm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "michaellui67",
+            "email": "54847334+michaellui67@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
