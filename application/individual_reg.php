@@ -92,7 +92,7 @@ alert("We could not register you!.");
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Contact Number</label>
-                    <input type="text" minlength="11" pattern="[0-9]{11}" required name="phone">
+                    <input type="text" minlength="10" pattern="[0-9]" required name="phone">
                 </div>
             </div>
             <div class="col-md-6">
