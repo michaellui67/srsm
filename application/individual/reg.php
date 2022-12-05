@@ -17,7 +17,7 @@ $me = $_SESSION['user_id'];
 
             <div class="card card-success">
                 <div class="card-header">
-                    <h3 class="card-title"><b>Book Train Tickets</b></h3>
+                    <h3 class="card-title"><b>Reservasi Fasilitas Stadion Malang</b></h3>
                 </div>
                 <div class="card-body">
 
@@ -27,9 +27,8 @@ $me = $_SESSION['user_id'];
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Route</th>
-                                <th>Status</th>
-                                <th>Date/Time</th>
+                                <th>Fasilitas</th>
+                                <th>Tanggal/Waktu</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -54,10 +53,7 @@ $me = $_SESSION['user_id'];
                                 }
                                 $id = $fetch['id']; ?><tr>
                                 <td><?php echo ++$sn; ?></td>
-                                <td><?php echo $fullname =  getRoutePath($fetch['route_id']);
-                                        ?></td>
-                                <td><?php $array = getTotalBookByType($id);
-                                        echo ($max_first = ($array['first'] - $array['first_booked'])), " Kuota Weekday" . "<hr/>" . ($max_second = ($array['second'] - $array['second_booked'])) . " Kuota Weekend";
+                                <td><?php echo $fullname =  getTrainName($fetch['train_id']);
                                         ?></td>
                                 <td><?php echo $fetch['date'], " / ", formatTime($fetch['time']); ?></td>
 
