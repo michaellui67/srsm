@@ -54,14 +54,13 @@ alert("Password does not match.");
             if ($stmt->execute()) {
             ?>
 <script>
-alert("Congratulations.\nYou are now registered.");
 window.location = 'signin.php';
 </script>
 <?php
             } else {
             ?>
 <script>
-alert("We could not register you!.");
+alert("Error!");
 </script>
 <?php
             }

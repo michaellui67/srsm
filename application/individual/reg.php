@@ -28,6 +28,7 @@ $me = $_SESSION['user_id'];
                             <tr>
                                 <th>#</th>
                                 <th>Fasilitas</th>
+                                <th>Foto</th>
                                 <th>Tanggal/Waktu</th>
                                 <th>Aksi</th>
                             </tr>
@@ -54,6 +55,8 @@ $me = $_SESSION['user_id'];
                                 $id = $fetch['id']; ?><tr>
                                 <td><?php echo ++$sn; ?></td>
                                 <td><?php echo $fullname =  getTrainName($fetch['train_id']);?></td>
+                                <td>
+                                    <img src="<?php echo getTrainFoto($fetch['train_id']);?>">
                                 <td><?php echo $fetch['date'], " / ", formatTime($fetch['time']); ?></td>
 
                                 <td>
@@ -111,7 +114,7 @@ $me = $_SESSION['user_id'];
                                 ?>
 
                         </tbody>
-                        
+
                     </table>
                 </div>
                 <!-- /.card-body -->

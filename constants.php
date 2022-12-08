@@ -389,7 +389,6 @@ function getImage($id, $conn)
   else
     return "uploads/" . $row['loc'];
 }
-
 function formatDate($date)
 {
   return date('d-m-Y', strtotime($date));
@@ -494,6 +493,11 @@ function getTrainName($id)
 {
   $val = connect()->query("SELECT name FROM train WHERE id = '$id'")->fetch_assoc();
   return $val['name'];
+}
+function getTrainFoto($id)
+{
+  $val = connect()->query("SELECT loc FROM train WHERE id = '$id'")->fetch_assoc();
+  return "uploads/" . $val['loc'];
 }
 function alert($msg)
 {

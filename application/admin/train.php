@@ -18,7 +18,8 @@ $me = "?page=$source";
                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                     data-target="#add">
                                     Tambah Fasilitas
-                                </button></div>
+                                </button>
+                            </div>
                         </div>
 
                         <div class="card-body">
@@ -30,6 +31,7 @@ $me = "?page=$source";
                                     <tr>
                                         <th>#</th>
                                         <th>Nama Fasilitas</th>
+                                        <th>Foto</th>
                                         <th>Kuota Weekday</th>
                                         <th>Kuota Weekend</th>
                                         <th style="width: 30%;">Aksi</th>
@@ -47,6 +49,9 @@ $me = "?page=$source";
                                     <tr>
                                         <td><?php echo ++$sn; ?></td>
                                         <td><?php echo $fullname = $fetch['name']; ?></td>
+                                        <td>
+                                            <img src="<?php echo $file = getTrainFoto($fetch['id']); ?>">
+                                        </td>
                                         <td><?php echo $fetch['first_seat']; ?></td>
                                         <td><?php echo $fetch['second_seat']; ?></td>
                                         <td>
@@ -71,10 +76,7 @@ $me = "?page=$source";
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title">Mengubah <?php echo $fullname;
-
-
-                                                                                        ?></h4>
+                                                    <h4 class="modal-title">Mengubah <?php echo $fullname ?></h4>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -87,6 +89,8 @@ $me = "?page=$source";
                                                         <p>Nama Fasilitas : <input type="text" class="form-control"
                                                                 name="name" value="<?php echo $fetch['name'] ?>"
                                                                 required minlength="3" id=""></p>
+                                                        <p>Foto : <input type="file" class="form-control" name="file"
+                                                                required></p>
                                                         <p>Kuota Weekday : <input type="number" min='0'
                                                                 class="form-control"
                                                                 value="<?php echo $fetch['first_seat'] ?>"
@@ -103,10 +107,6 @@ $me = "?page=$source";
                                                                 name='edit'>
                                                         </p>
                                                     </form>
-                                                    <div class="modal-footer justify-content-between">
-                                                        <button type="button" class="btn btn-default"
-                                                            data-dismiss="modal">Tutup</button>
-                                                    </div>
                                                 </div>
                                                 <!-- /.modal-content -->
                                             </div>
@@ -118,7 +118,7 @@ $me = "?page=$source";
                                         ?>
 
                                 </tbody>
-                               
+
                             </table>
                         </div>
                     </div>
@@ -151,6 +151,10 @@ $me = "?page=$source";
                             <td><input type="text" class="form-control" name="name" required minlength="3" id=""></td>
                         </tr>
                         <tr>
+                            <th>Foto</th>
+                            <td><input type="file" name='file' required></td>
+                        </tr>
+                        <tr>
                             <th>Kuota Weekday</th>
                             <td><input type="number" min='0' class="form-control" name="first_seat" required id=""></td>
                         </tr>
@@ -168,8 +172,6 @@ $me = "?page=$source";
                     </table>
                 </form>
 
-
-
             </div>
 
         </div>
@@ -182,6 +184,7 @@ $me = "?page=$source";
 
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
+    $loc = uploadFile('file');
     $first_seat = $_POST['first_seat'];
     $second_seat = $_POST['second_seat'];
     if (!isset($name, $first_seat, $second_seat)) {
@@ -191,10 +194,10 @@ if (isset($_POST['submit'])) {
         //Check if train exists
         $check = $conn->query("SELECT * FROM train WHERE name = '$name' ")->num_rows;
         if ($check) {
-            alert("Fasilitas ada");
+            alert("Fasilitas sudah ada");
         } else {
-            $ins = $conn->prepare("INSERT INTO train (name, first_seat, second_seat) VALUES (?,?,?)");
-            $ins->bind_param("sss", $name, $first_seat, $second_seat);
+            $ins = $conn->prepare("INSERT INTO train (name, loc, first_seat, second_seat) VALUES (?,?,?,?)");
+            $ins->bind_param("ssss", $name, $loc, $first_seat, $second_seat);
             $ins->execute();
             alert("Sukses!");
             load($_SERVER['PHP_SELF'] . "$me");
@@ -204,10 +207,11 @@ if (isset($_POST['submit'])) {
 
 if (isset($_POST['edit'])) {
     $name = $_POST['name'];
+    $loc = uploadFile('file');
     $first_seat = $_POST['first_seat'];
     $second_seat = $_POST['second_seat'];
     $id = $_POST['id'];
-    if (!isset($name, $first_seat, $second_seat)) {
+    if (!isset($name, $loc, $first_seat, $second_seat)) {
         alert("Fill Form Properly!");
     } else {
         $conn = connect();
@@ -216,8 +220,8 @@ if (isset($_POST['edit'])) {
         if ($check == 2) {
             alert("Fasilitas sudah ada");
         } else {
-            $ins = $conn->prepare("UPDATE train SET name = ?, first_seat = ?, second_seat = ? WHERE id = ?");
-            $ins->bind_param("sssi", $name, $first_seat, $second_seat, $id);
+            $ins = $conn->prepare("UPDATE train SET name = ?, loc = ? first_seat = ?, second_seat = ? WHERE id = ?");
+            $ins->bind_param("ssssi", $name, $loc, $first_seat, $second_seat, $id);
             $ins->execute();
             alert("Sukses!");
             load($_SERVER['PHP_SELF'] . "$me");
