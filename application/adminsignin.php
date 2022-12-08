@@ -34,7 +34,6 @@ alert("Ensure you fill the form properly.");
 
         ?>
 <script>
-alert("Access Granted!");
 window.location = "admin.php";
 </script>
 <?php
@@ -50,7 +49,7 @@ alert("Access Denied.");
 ?>
 <div class="signup-page">
     <div class="form">
-        <h2>Admin Sign In</h2>
+        <h2>Admin Login</h2>
         <br>
         <form class="login-form" method="post" role="form" id="signup-form" autocomplete="off">
             <!-- json response will be here -->
@@ -59,7 +58,7 @@ alert("Access Denied.");
 
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Email Address</label>
+                    <label>Alamat Email</label>
                     <input type="text" required name="email">
                 </div>
             </div>
@@ -77,7 +76,7 @@ alert("Access Denied.");
             <div class="col-md-12">
                 <div class="form-group">
                     <button type="submit" id="btn-signup">
-                        SIGN IN
+                        MASUK
                     </button>
                 </div>
             </div>

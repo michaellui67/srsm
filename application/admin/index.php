@@ -126,7 +126,7 @@ if (!isset($file_access))
                 <span class="info-box-icon"><i class="fa fa-comment-dots"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Feedbacks Received</span>
+                    <span class="info-box-text">Masukan</span>
                     <span class="info-box-number">
                         <?php echo connect()->query("SELECT * FROM feedback")->num_rows ?>
                     </span>

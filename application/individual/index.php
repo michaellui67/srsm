@@ -12,15 +12,12 @@ if (!isset($file_access)) die("Direct File Access Denied");
 
                 <div class="card">
                     <div class="card-header alert-success">
-                        <h5 class="m-0">Quick Tips</h5>
+                        <h5 class="m-0">Tips</h5>
                     </div>
                     <div class="card-body">
-                        Use the links at the left.
-                        <br />You can see list of schedules by clicking on "New Booking". The system will display list
-                        of available schedules for you which you can view and make bookings from. <br>Before your
-                        bookings are saved, you are redirected to make payment. <br>After a successful payment, system
-                        generates your ticket ID for you which you are required to bring to the station. <br>You are
-                        allowed to view all your booking history by clicking on "View Bookings".
+                        Gunakan menu pada sebelah kiri untuk mengakses sistem
+                        <br />Lihat jadwal reservasi yang tersedia pada menu Reservasi. <br>Setelah menyelesaikan 
+                        proses pembayaran maka Reservasi akan muncul pada menu Lihat Reservasi.<br>Kritik dan Saran dapat disampaikan pada menu Masukan.
                     </div>
                 </div>
             </div><?php
@@ -58,7 +55,7 @@ if (!isset($file_access)) die("Direct File Access Denied");
                                     ?>
                             </div>
                             <a href=""><button
-                                    onclick="return confirm('Silahkan hubungi kontak WA 081331907503 dengan bukti transfer untuk menyelesaikan reservasi.\nTiket akan tampil setelah petugas kami telah menkonfiramsi pembayaran')"
+                                    onclick="return confirm('Silahkan hubungi kontak WA 081331907503 dengan bukti transfer untuk menyelesaikan reservasi.\nTiket akan tampil setelah petugas kami telah menkonfirmasi pembayaran')"
                                     class="btn btn-primary">Bayar Sekarang</button></a>
                         </div>
                     </div>

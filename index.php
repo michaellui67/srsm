@@ -122,15 +122,18 @@ include 'constants.php';
                     <ul class="nav navbar-nav navbar-right">
 
                         <li><a href="#home" class="page-scroll">
-                                <h3>Home</h3>
+                                <h3>Beranda</h3>
                             </a></li>
 
                         <li><a href="#two" class="page-scroll">
-                                <h3>About</h3>
+                                <h3>Tentang Kami</h3>
+                            </a></li>
+                        <li><a href="catalog.php" class="page-scroll">
+                                <h3>Katalog</h3>
                             </a></li>
 
                         <li><a href="application/signin.php" class="page-scroll">
-                                <h3>Customer Portal</h3>
+                                <h3>Login</h3>
                             </a></li>
 
                         <li><a href="application/adminsignin.php" class="page-scroll">
@@ -177,7 +180,8 @@ include 'constants.php';
 
                             <div class="btn-bar">
 
-                                <a href="application/signin.php" class="btn btn-custom theme_background_color">Reservasi Sekarang!</a>
+                                <a href="application/signin.php" class="btn btn-custom theme_background_color">Reservasi
+                                    Sekarang!</a>
 
                             </div>
 
@@ -204,7 +208,8 @@ include 'constants.php';
 
                             <h1 class="main-heading-title">Stadion Kanjuruhan</h1>
 
-                            <p class="main-heading-text">Stadion Kanjuruhan adalah stadion yang terletak di Malang Kabupaten.
+                            <p class="main-heading-text">Jl. Krajan Raya, Krajan, Kedungpedaringan, Kec. Kepanjen,
+                                Kabupaten Malang, Jatim 65163
                             </p>
 
                         </div>
@@ -222,8 +227,85 @@ include 'constants.php';
         <!-- [/MAIN-HEADING]
  
 ============================================================================================================================-->
+        <section class="aboutus white-background black" id="two">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-12 text-center black">
+
+                        <h3 class="title">Katalog <span class="themecolor">Fasilitas</span></h3>
+
+                    </div>
+
+                </div>
+
+                <div class="gap">
 
 
+                </div>
+
+
+
+                <div class="container d-flex justify-content-center">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="application/signin.php">
+                                <div> <img src="images/stadion.png" class="img-responsive image"> </div>
+
+                                <div class="card-body">
+
+                                    <h5 class="card-title">Stadion Kanjuruhan Dalam</h5>
+                                    <p class="card-text"><i class="fa fa-star star-rating"></i><i
+                                            class="fa fa-star star-rating"></i><i class="fa fa-star star-rating"></i><i
+                                            class="fa fa-star star-rating"></i>
+                                    <i class="rating">9.2</i></p>
+                                    <p class="card-text">Weekday IDR 135000, Weekend IDR 150000</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="application/signin.php">
+                                <div> <img src="images/outdoor.png" class="img-responsive image"> </div>
+
+                                <div class="card-body">
+
+                                    <h5 class="card-title">Stadion Kanjuruhan Luar</h5>
+                                    <p class="card-text"><i class="fa fa-star star-rating"></i><i
+                                            class="fa fa-star star-rating"></i><i class="fa fa-star star-rating"></i><i
+                                            class="fa fa-star star-rating"></i><i class="fa fa-star star-rating"></i>
+                                        <i class="rating">9.6</i>
+                                    </p>
+
+                                    <p class="card-text">Weekday IDR 125000, Weekend IDR 135000</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="application/signin.php">
+                                <div> <img src="images/pool.png" class="img-responsive image"> </div>
+                                <div class="card-body">
+
+                                    <h5 class="card-title">Kolam Renang</h5>
+                                    <p class="card-text"><i class="fa fa-star star-rating"></i><i
+                                            class="fa fa-star star-rating"></i><i class="fa fa-star star-rating"></i><i
+                                            class="fa fa-star star-rating"></i>
+                                        <i class="rating">8.2</i>
+                                    </p>
+                                    <p class="card-text">Weekday IDR 10000, Weekend IDR 15000</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+        </section>
 
         <!-- [ABOUT US]
  
@@ -237,7 +319,7 @@ include 'constants.php';
 
                     <div class="col-md-12 text-center black">
 
-                        <h3 class="title">ABOUT <span class="themecolor">US</span></h3>
+                        <h3 class="title">TENTANG <span class="themecolor">KAMI</span></h3>
 
                     </div>
 
@@ -313,7 +395,8 @@ include 'constants.php';
 
                     <div class="col-md-4">
 
-                        <p class="footer-links"><a href="#">Terms of Use</a> <a href="#">Privacy Policy</a></p>
+                        <p class="footer-links"><a href="#">Ketentuan Pemakaian</a> <a href="#">Kebijakan Privasi</a>
+                        </p>
 
                     </div>
 

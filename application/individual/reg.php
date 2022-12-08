@@ -53,14 +53,13 @@ $me = $_SESSION['user_id'];
                                 }
                                 $id = $fetch['id']; ?><tr>
                                 <td><?php echo ++$sn; ?></td>
-                                <td><?php echo $fullname =  getTrainName($fetch['train_id']);
-                                        ?></td>
+                                <td><?php echo $fullname =  getTrainName($fetch['train_id']);?></td>
                                 <td><?php echo $fetch['date'], " / ", formatTime($fetch['time']); ?></td>
 
                                 <td>
                                     <button type="button" class="btn btn-info" data-toggle="modal"
                                         data-target="#book<?php echo $id ?>">
-                                        Book
+                                        Reservasi
                                     </button>
                                 </td>
                             </tr>
@@ -69,10 +68,7 @@ $me = $_SESSION['user_id'];
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title">Book For <?php echo $fullname;
-
-
-                                                                                    ?> &#128642;</h4>
+                                            <h4 class="modal-title">Reservasi untuk <?php echo $fullname;?></h4>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -93,9 +89,9 @@ $me = $_SESSION['user_id'];
                                                 <p>
                                                     Tipe : <select name="class" required class="form-control" id="">
                                                         <option value="">-- Pilih Tipe --</option>
-                                                        <option value="first">Weekday ($
+                                                        <option value="first">Weekday (IDR
                                                             <?php echo ($fetch['first_fee']); ?>)</option>
-                                                        <option value="second">Weekend ($
+                                                        <option value="second">Weekend (IDR
                                                             <?php echo ($fetch['second_fee']); ?>)</option>
                                                     </select>
                                                 </p>

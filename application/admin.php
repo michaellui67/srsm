@@ -92,7 +92,7 @@ $fullname = "System Administrator";
                                 echo 'active'; ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Home
+                                    Beranda
                                 </p>
                             </a>
 
@@ -143,18 +143,6 @@ $fullname = "System Administrator";
                                     Fasilitas
                                 </p>
                             </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="admin.php?page=report" class="nav-link      <?php
-                            echo (@$_GET['page'] == 'report') ? 'active' : '';
-                            ?>">
-                                <i class="nav-icon fas fa-file-pdf"></i>
-                                <p>
-                                    Laporan
-                                </p>
-                            </a>
-
                         </li>
                         <li class="nav-item">
                             <a href="admin.php?page=payment" class="nav-link      <?php
@@ -211,7 +199,7 @@ $fullname = "System Administrator";
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark"> Administrator Dashboard</h1>
+                            <h1 class="m-0 text-dark">Beranda Admin</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -269,7 +257,7 @@ $fullname = "System Administrator";
             </div>
             <!-- Default to the left -->
             <strong>
-                <?php echo date("Y"); ?> - All Rights Reserved
+                <?php echo date("Y"); ?>
             </strong>
         </footer>
     </div>

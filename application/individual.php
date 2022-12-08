@@ -84,7 +84,7 @@ if (isset($_GET['error'])) {
                             <a href="individual.php" class="nav-link <?php echo (@$_GET['page'] == '') ? 'active' : '';?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Home
+                                    Beranda
                                 </p>
                             </a>
 
@@ -94,19 +94,19 @@ if (isset($_GET['error'])) {
                         <li class="nav-item">
                             <a href="individual.php?page=reg" class="nav-link <?php echo (@$_GET['page'] == 'reg') ? 'active' : '';?>">
                                 <i class="fa fa-plus nav-icon"></i>
-                                <p>New Booking</p>
+                                <p>Reservasi</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="individual.php?page=paid" class="nav-link <?php echo (@$_GET['page'] == 'paid') ? 'active' : '';?>">
                                 <i class="fa fa-book nav-icon"></i>
-                                <p>View Bookings</p>
+                                <p>Lihat Reservasi</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="individual.php?page=feedback" class="nav-link <?php echo (@$_GET['page'] == 'feedback') ? 'active' : '';?>">
                                 <i class="fa fa-mail-bulk nav-icon"></i>
-                                <p>Feedback</p>
+                                <p>Masukan</p>
                             </a>
                         </li>
 
@@ -132,7 +132,7 @@ if (isset($_GET['error'])) {
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Customer's Dashboard</h1>
+                            <h1 class="m-0 text-dark">Beranda</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -188,7 +188,7 @@ if (isset($_GET['error'])) {
                 <?php echo SITE_NAME; ?>
             </div>
             <!-- Default to the left -->
-            <strong><?php echo date("Y"); ?> - All Rights Reserved</strong>
+            <strong><?php echo date("Y"); ?> </strong>
         </footer>
     </div>
     <!-- ./wrapper -->

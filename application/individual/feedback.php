@@ -23,18 +23,17 @@ if (!isset($file_access)) die("Direct File Access Denied");
             <div class="col-12">
                 <div class="callout callout-info">
                     <h5><i class="fas fa-info"></i> Info:</h5>
-                    We always want to hear from you!
-                    Replied to within 24-hours.
+                    Kritik dan Saran
                 </div>
 
 
 
                 <div class="card">
                     <div class="card-header alert-success">
-                        <h5 class="card-title"><b>List of all Feedbacks</b></h5>
+                        <h5 class="card-title"><b>Riwayat Masukan dan Balasan</b></h5>
                         <div class='float-right'>
                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add">
-                                Send New Feedback
+                                Buat Masukan
                             </button>
                         </div>
                     </div>
@@ -43,8 +42,8 @@ if (!isset($file_access)) die("Direct File Access Denied");
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Your Comment</th>
-                                    <th>Response</th>
+                                    <th>Komentar Anda</th>
+                                    <th>Balasan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,7 +78,7 @@ if (!isset($file_access)) die("Direct File Access Denied");
     <div class="modal-dialog modal-lg">
         <div class="modal-content" align="center">
             <div class="modal-header">
-                <h4 class="modal-title">Send New Feedback </h4>
+                <h4 class="modal-title">Kirim Kritik dan Saran </h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -90,7 +89,7 @@ if (!isset($file_access)) die("Direct File Access Denied");
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                Type Message : <textarea name="message" required minlength="10" id="" cols="30"
+                                Pesan Anda : <textarea name="message" required minlength="10" id="" cols="30"
                                     rows="10" class="form-control"></textarea>
                             </div>
 
@@ -98,7 +97,7 @@ if (!isset($file_access)) die("Direct File Access Denied");
 
 
                         <hr>
-                        <input type="submit" name="sendFeedback" class="btn btn-success" value="Send"></p>
+                        <input type="submit" name="sendFeedback" class="btn btn-success" value="Kirim"></p>
                 </form>
 
 

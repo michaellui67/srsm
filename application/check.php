@@ -105,7 +105,7 @@ echo "<script>alert('Record not found!'); window.location='check.php';</script>"
     <a href="../">Go back</a>
   </div>
   <div class="lockscreen-footer text-center">
-  <?php echo date("Y"); ?> - All Rights Reserved
+  <?php echo date("Y"); ?>
   </div>
 </div>
 <!-- /.center -->
