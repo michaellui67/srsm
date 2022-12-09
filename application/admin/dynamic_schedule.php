@@ -122,6 +122,11 @@ $me = "?page=$source";
                                                         <p class="float-right"><input type="submit" name="edit"
                                                                 class="btn btn-success" value="Submit"></p>
                                                     </form>
+
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default"
+                                                            data-dismiss="modal">Tutup</button>
+                                                    </div>
                                                 </div>
                                                 <!-- /.modal-content -->
                                             </div>
