@@ -397,7 +397,7 @@ function formatDate($date)
 function getRoutePath($id)
 {
   $val = connect()->query("SELECT * FROM route WHERE id = '$id'")->fetch_assoc();
-  return $val['start'] . " to " . $val['stop'];
+  return $val['start'] . " - " . $val['stop'];
 }
 
 function formatTime($time)

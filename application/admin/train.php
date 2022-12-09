@@ -32,8 +32,6 @@ $me = "?page=$source";
                                         <th>#</th>
                                         <th>Nama Fasilitas</th>
                                         <th>Foto</th>
-                                        <th>Kuota Weekday</th>
-                                        <th>Kuota Weekend</th>
                                         <th style="width: 30%;">Aksi</th>
                                     </tr>
                                 </thead>
@@ -52,8 +50,6 @@ $me = "?page=$source";
                                         <td>
                                             <img src="<?php echo $file = getTrainFoto($fetch['id']); ?>">
                                         </td>
-                                        <td><?php echo $fetch['first_seat']; ?></td>
-                                        <td><?php echo $fetch['second_seat']; ?></td>
                                         <td>
                                             <form method="POST">
                                                 <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -91,16 +87,14 @@ $me = "?page=$source";
                                                                 required minlength="3" id=""></p>
                                                         <p>Foto : <input type="file" class="form-control" name="file"
                                                                 required></p>
-                                                        <p>Kuota Weekday : <input type="number" min='0'
-                                                                class="form-control"
-                                                                value="<?php echo $fetch['first_seat'] ?>"
-                                                                name="first_seat" required id="">
-                                                        </p>
-                                                        <p>Kuota Weekend : <input type="number" min='0'
-                                                                class="form-control"
-                                                                value="<?php echo $fetch['second_seat'] ?>"
-                                                                name="second_seat" required id="">
-                                                        </p>
+                                                        <input type="hidden" min='0' class="form-control"
+                                                            value="<?php echo $fetch['first_seat'] ?>" name="first_seat"
+                                                            required id="">
+
+                                                        <input type="hidden" min='0' class="form-control"
+                                                            value="<?php echo $fetch['second_seat'] ?>"
+                                                            name="second_seat" required id="">
+
                                                         <p>
 
                                                             <input class="btn btn-info" type="submit" value="Ubah"
@@ -154,21 +148,19 @@ $me = "?page=$source";
                             <th>Foto</th>
                             <td><input type="file" name='file' required></td>
                         </tr>
-                        <tr>
-                            <th>Kuota Weekday</th>
-                            <td><input type="number" min='0' class="form-control" name="first_seat" required id=""></td>
-                        </tr>
-                        <tr>
-                            <th>Kuota Weekend</th>
-                            <td><input type="number" min='0' class="form-control" name="second_seat" required id="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
+                        <input type="hidden" min='0' class="form-control" value="<?php echo $fetch['first_seat'] ?>"
+                            name="first_seat" required id="">
 
-                                <input class="btn btn-info" type="submit" value="Submit" name='submit'>
-                            </td>
-                        </tr>
+                        <input type="hidden" min='0' class="form-control" value="<?php echo $fetch['second_seat'] ?>"
+                            name="second_seat" required id="">
+
+                        <p>
+                            <tr>
+                                <td colspan="2">
+
+                                    <input class="btn btn-info" type="submit" value="Submit" name='submit'>
+                                </td>
+                            </tr>
                     </table>
                 </form>
 

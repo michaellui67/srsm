@@ -29,7 +29,6 @@ $me = $_SESSION['user_id'];
                                 <th>#</th>
                                 <th>Fasilitas</th>
                                 <th>Foto</th>
-                                <th>Tanggal/Waktu</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -57,8 +56,6 @@ $me = $_SESSION['user_id'];
                                 <td><?php echo $fullname =  getTrainName($fetch['train_id']);?></td>
                                 <td>
                                     <img src="<?php echo getTrainFoto($fetch['train_id']);?>">
-                                <td><?php echo $fetch['date'], " / ", formatTime($fetch['time']); ?></td>
-
                                 <td>
                                     <button type="button" class="btn btn-info" data-toggle="modal"
                                         data-target="#book<?php echo $id ?>">
@@ -89,8 +86,8 @@ $me = $_SESSION['user_id'];
                                                         max='<?php echo $max_first >= $max_second ? $max_first : $max_second ?>'
                                                         name="number" class="form-control" id="">
                                                 </p>
-                                                <p>
-                                                    Tipe : <select name="class" required class="form-control" id="">
+                                                <p>Tipe :
+                                                    <select name="class" required class="form-control" id="">
                                                         <option value="">-- Pilih Tipe --</option>
                                                         <option value="first">Weekday (IDR
                                                             <?php echo ($fetch['first_fee']); ?>)</option>

@@ -18,7 +18,8 @@ $me = "?page=$source"
                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                     data-target="#add">
                                     Tambah Acara
-                                </button></div>
+                                </button>
+                            </div>
                         </div>
 
                         <div class="card-body">
@@ -29,6 +30,7 @@ $me = "?page=$source"
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Nama Acara</th>
                                         <th>Mulai</th>
                                         <th>Selesai</th>
                                         <th>Aksi</th>
@@ -45,6 +47,7 @@ $me = "?page=$source"
 
                                     <tr>
                                         <td><?php echo ++$sn; ?></td>
+                                        <td><?php echo $fetch['name']; ?></td>
                                         <td><?php echo $fetch['start']; ?></td>
                                         <td><?php echo $fetch['stop'];
 
@@ -71,10 +74,7 @@ $me = "?page=$source"
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title">Mengubah <?php echo $fullname;
-
-
-                                                                                        ?> &#128642;</h4>
+                                                    <h4 class="modal-title">Mengubah <?php echo $fullname; ?></h4>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -84,6 +84,10 @@ $me = "?page=$source"
                                                     <form action="" method="post">
                                                         <input type="hidden" class="form-control" name="id"
                                                             value="<?php echo $id ?>" required id="">
+                                                        <p>Nama Acara : <input type="text" class="form-control"
+                                                                value="<?php echo $fetch['name'] ?>" name="name"
+                                                                required id="">
+                                                        </p>
                                                         <p>Mulai : <input type="text" class="form-control"
                                                                 value="<?php echo $fetch['start'] ?>" name="start"
                                                                 required id="">
@@ -109,7 +113,7 @@ $me = "?page=$source"
                                         ?>
 
                                 </tbody>
-                               
+
                             </table>
                         </div>
                     </div>
@@ -137,7 +141,10 @@ $me = "?page=$source"
                 <form action="" method="post">
 
                     <table class="table table-bordered">
-
+                        <tr>
+                            <th>Nama Acara</th>
+                            <td><input type="text" class="form-control" name="name" required id=""></td>
+                        </tr>
                         <tr>
                             <th>Mulai</th>
                             <td><input type="text" class="form-control" name="start" required id=""></td>
@@ -169,15 +176,16 @@ $me = "?page=$source"
 <?php
 
 if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
     $start = $_POST['start'];
     $stop = $_POST['stop'];
-    if (!isset($stop, $start)) {
+    if (!isset($name, $stop, $start)) {
         alert("Fill Form Properly!");
     } else {
         $conn = connect();
 
-        $ins = $conn->prepare("INSERT INTO route (start,stop) VALUES (?,?)");
-        $ins->bind_param("ss", $start, $stop);
+        $ins = $conn->prepare("INSERT INTO route (name, start,stop) VALUES (?, ?,?)");
+        $ins->bind_param("sss", $name, $start, $stop);
         $ins->execute();
         alert("Sukses!");
         load($_SERVER['PHP_SELF'] . "$me");
@@ -185,15 +193,16 @@ if (isset($_POST['submit'])) {
 }
 
 if (isset($_POST['edit'])) {
+    $name = $_POST['name'];
     $start = $_POST['start'];
     $stop = $_POST['stop'];
     $id = $_POST['id'];
-    if (!isset($start, $stop)) {
+    if (!isset($name, $start, $stop)) {
         alert("Fill Form Properly!");
     } else {
         $conn = connect();
-        $ins = $conn->prepare("UPDATE route SET start = ?, stop = ? WHERE id = ?");
-        $ins->bind_param("ssi", $start, $stop, $id);
+        $ins = $conn->prepare("UPDATE route SET name = ?, start = ?, stop = ? WHERE id = ?");
+        $ins->bind_param("sssi", $name, $start, $stop, $id);
         $ins->execute();
         alert("Sukses!");
         load($_SERVER['PHP_SELF'] . "$me");

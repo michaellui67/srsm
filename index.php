@@ -122,16 +122,16 @@ include 'constants.php';
                     <ul class="nav navbar-nav navbar-right">
 
                         <li><a href="#home" class="page-scroll">
-                                <h3>Beranda</h3>
+                                <h3>Halaman Utama</h3>
                             </a></li>
 
                         <li><a href="#two" class="page-scroll">
-                                <h3>Tentang Kami</h3>
-                            </a></li>
-                        <li><a href="catalog.php" class="page-scroll">
                                 <h3>Katalog</h3>
                             </a></li>
 
+                        <li><a href="#three" class="page-scroll">
+                                <h3>Tentang Kami</h3>
+                            </a></li>
                         <li><a href="application/signin.php" class="page-scroll">
                                 <h3>Login</h3>
                             </a></li>
@@ -260,7 +260,8 @@ include 'constants.php';
                                     <p class="card-text"><i class="fa fa-star star-rating"></i><i
                                             class="fa fa-star star-rating"></i><i class="fa fa-star star-rating"></i><i
                                             class="fa fa-star star-rating"></i>
-                                    <i class="rating">9.2</i></p>
+                                        <i class="rating">9.2</i>
+                                    </p>
                                     <p class="card-text">Weekday IDR 135000, Weekend IDR 150000</p>
                                 </div>
                             </a>
@@ -311,7 +312,7 @@ include 'constants.php';
  
 ============================================================================================================================-->
 
-        <section class="aboutus white-background black" id="two">
+        <section class="aboutus white-background black" id="three">
 
             <div class="container">
 

@@ -41,8 +41,8 @@ $source = 'payment';
                                     echo "<tr>
                                       <td>" . getRoutePath($val['route_id']) . "</td>
                                       <td>" . $val['date'] . " - " . formatTime($val['time']) . "</td>
-                                      <td>$ " . sum($val['id'], 'first') . "</td>
-                                      <td>$ " . sum($val['id'], 'second') . "</td>
+                                      <td>IDR " . sum($val['id'], 'first') . "</td>
+                                      <td>IDR " . sum($val['id'], 'second') . "</td>
                                       <td>" . (($array['first'] - $array['first_booked'])), " Kuota Weekday" . "<hr/>" . ($array['second'] - $array['second_booked']) . " Kuota Weekend" . "</td>
                                       </tr>";
                                 }
