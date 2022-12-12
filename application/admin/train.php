@@ -48,7 +48,7 @@ $me = "?page=$source";
                                         <td><?php echo ++$sn; ?></td>
                                         <td><?php echo $fullname = $fetch['name']; ?></td>
                                         <td>
-                                            <img src="<?php echo getTrainFoto($fetch['id']); ?>" max-width="160" max-height="160">
+                                            <img src="<?php echo getTrainFoto($fetch['id']); ?>" width="240px" height="160px">
                                         </td>
                                         <td>
                                             <form method="POST">
@@ -87,11 +87,6 @@ $me = "?page=$source";
                                                                 required minlength="3" id=""></p>
                                                         <p>Foto : <input type="file" class="form-control" name="file"
                                                                 required></p>
-                                                        <input type="hidden" value='1' class="form-control"
-                                                            name="first_seat" required id="">
-
-                                                        <input type="hidden" value='1' class="form-control"
-                                                            name="second_seat" required id="">
                                                         <input class="btn btn-info" type="submit" value="Ubah"
                                                             name='edit'>
                                                         </p>
@@ -143,9 +138,6 @@ $me = "?page=$source";
                             <th>Foto</th>
                             <td><input type="file" name='file' required id=""></td>
                         </tr>
-                        <input type="hidden" value='1' class="form-control" name="first_seat" required id="">
-
-                        <input type="hidden" value='1' class="form-control" name="second_seat" required id="">
 
                         <td colspan="2">
 
@@ -167,8 +159,8 @@ $me = "?page=$source";
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $loc = uploadFile('file');
-    $first_seat = $_POST['first_seat'];
-    $second_seat = $_POST['second_seat'];
+    $first_seat = '1';
+    $second_seat = '1';
     if (!isset($name, $loc, $first_seat, $second_seat)) {
         alert("Fill Form Properly!");
     } else {
@@ -190,8 +182,8 @@ if (isset($_POST['submit'])) {
 if (isset($_POST['edit'])) {
     $name = $_POST['name'];
     $loc = uploadFile('file');
-    $first_seat = $_POST['first_seat'];
-    $second_seat = $_POST['second_seat'];
+    $first_seat = '1';
+    $second_seat = '1';
     $id = $_POST['id'];
     if (!isset($name, $loc, $first_seat, $second_seat)) {
         alert("Fill Form Properly!");
