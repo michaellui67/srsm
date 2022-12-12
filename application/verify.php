@@ -21,7 +21,7 @@ if (isset($_GET['reference'])) {
   $class = $_SESSION['class'];
   $price = 0;
 
-  $amount = $_SESSION['amount'] . "00";
+  $amount = $_SESSION['amount'];
   curl_setopt_array($pay, array(
     CURLOPT_URL => "https://api.paystack.co/transaction/verify/" . rawurlencode($reference),
     CURLOPT_RETURNTRANSFER => true,

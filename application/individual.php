@@ -81,7 +81,8 @@ if (isset($_GET['error'])) {
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
-                            <a href="individual.php" class="nav-link <?php echo (@$_GET['page'] == '') ? 'active' : '';?>">
+                            <a href="individual.php"
+                                class="nav-link <?php echo (@$_GET['page'] == '') ? 'active' : '';?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Beranda
@@ -89,22 +90,25 @@ if (isset($_GET['error'])) {
                             </a>
 
                         </li>
-                        
+
 
                         <li class="nav-item">
-                            <a href="individual.php?page=reg" class="nav-link <?php echo (@$_GET['page'] == 'reg') ? 'active' : '';?>">
+                            <a href="individual.php?page=reg"
+                                class="nav-link <?php echo (@$_GET['page'] == 'reg') ? 'active' : '';?>">
                                 <i class="fa fa-plus nav-icon"></i>
                                 <p>Reservasi</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="individual.php?page=paid" class="nav-link <?php echo (@$_GET['page'] == 'paid') ? 'active' : '';?>">
+                            <a href="individual.php?page=paid"
+                                class="nav-link <?php echo (@$_GET['page'] == 'paid') ? 'active' : '';?>">
                                 <i class="fa fa-book nav-icon"></i>
                                 <p>Lihat Reservasi</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="individual.php?page=feedback" class="nav-link <?php echo (@$_GET['page'] == 'feedback') ? 'active' : '';?>">
+                            <a href="individual.php?page=feedback"
+                                class="nav-link <?php echo (@$_GET['page'] == 'feedback') ? 'active' : '';?>">
                                 <i class="fa fa-mail-bulk nav-icon"></i>
                                 <p>Masukan</p>
                             </a>

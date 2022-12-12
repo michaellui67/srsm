@@ -54,7 +54,7 @@ if (!isset($file_access)) die("Direct File Access Denied");
                                     $_SESSION['class'] =  $class;
                                     ?>
                             </div>
-                            <a href="#"><button
+                            <a href="pay.php"><button
                                     onclick="return confirm('Silahkan hubungi kontak WA 081331907503 dengan bukti transfer untuk menyelesaikan reservasi.\nTiket akan tampil setelah petugas kami telah menkonfirmasi pembayaran')"
                                     class="btn btn-primary">Bayar Sekarang</button></a>
                         </div>
@@ -67,3 +67,4 @@ if (!isset($file_access)) die("Direct File Access Denied");
         </div>
     </div>
 </div>
+

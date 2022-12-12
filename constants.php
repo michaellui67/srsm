@@ -22,7 +22,7 @@ $date = date('D, d-M-Y h:i:s A');
 $date_small = date('d-M-Y');
 ;
 //INSERT YOUR OWN PAYSTACK API KEYS
-$paystack = "#YOUR_API_KEY"; //Do not change this! Redirect URL http://localhost/srsm/application/verify.php
+$paystack = "sk_test_fa3f5e18201e6a864f9daf0f6be3851e576b750e"; //Do not change this! Redirect URL http://localhost/srsm/application/verify.php
 if (!function_exists('connect')) {
 
   function connect()
@@ -484,7 +484,6 @@ function isScheduleActive($id)
     $row = $conn->fetch_assoc();
     $time = getTime();
     $schedule_date = $row['date'];
-    $schedule_time = $row['time'];
     if ($schedule_date == $today) {
       if (strtotime($schedule_time) <= strtotime($time))
         return false;
