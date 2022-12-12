@@ -48,7 +48,7 @@ $me = "?page=$source";
                                         <td><?php echo ++$sn; ?></td>
                                         <td><?php echo $fullname = $fetch['name']; ?></td>
                                         <td>
-                                            <img src="<?php echo $file = getTrainFoto($fetch['id']); ?>">
+                                            <img src="<?php echo getTrainFoto($fetch['id']); ?>" max-width="160" max-height="160">
                                         </td>
                                         <td>
                                             <form method="POST">
@@ -79,7 +79,7 @@ $me = "?page=$source";
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="" method="post">
+                                                    <form action="" method="post" enctype="multipart/form-data">
                                                         <input type="hidden" class="form-control" name="id"
                                                             value="<?php echo $id ?>" required id="">
                                                         <p>Nama Fasilitas : <input type="text" class="form-control"
@@ -87,18 +87,13 @@ $me = "?page=$source";
                                                                 required minlength="3" id=""></p>
                                                         <p>Foto : <input type="file" class="form-control" name="file"
                                                                 required></p>
-                                                        <input type="hidden" min='0' class="form-control"
-                                                            value="<?php echo $fetch['first_seat'] ?>" name="first_seat"
-                                                            required id="">
+                                                        <input type="hidden" value='1' class="form-control"
+                                                            name="first_seat" required id="">
 
-                                                        <input type="hidden" min='0' class="form-control"
-                                                            value="<?php echo $fetch['second_seat'] ?>"
+                                                        <input type="hidden" value='1' class="form-control"
                                                             name="second_seat" required id="">
-
-                                                        <p>
-
-                                                            <input class="btn btn-info" type="submit" value="Ubah"
-                                                                name='edit'>
+                                                        <input class="btn btn-info" type="submit" value="Ubah"
+                                                            name='edit'>
                                                         </p>
                                                     </form>
                                                 </div>
@@ -137,7 +132,7 @@ $me = "?page=$source";
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
 
                     <table class="table table-bordered">
                         <tr>
@@ -146,21 +141,17 @@ $me = "?page=$source";
                         </tr>
                         <tr>
                             <th>Foto</th>
-                            <td><input type="file" name='file' required></td>
+                            <td><input type="file" name='file' required id=""></td>
                         </tr>
-                        <input type="hidden" min='0' class="form-control" value="<?php echo $fetch['first_seat'] ?>"
-                            name="first_seat" required id="">
+                        <input type="hidden" value='1' class="form-control" name="first_seat" required id="">
 
-                        <input type="hidden" min='0' class="form-control" value="<?php echo $fetch['second_seat'] ?>"
-                            name="second_seat" required id="">
+                        <input type="hidden" value='1' class="form-control" name="second_seat" required id="">
 
-                        <p>
-                            <tr>
-                                <td colspan="2">
+                        <td colspan="2">
 
-                                    <input class="btn btn-info" type="submit" value="Submit" name='submit'>
-                                </td>
-                            </tr>
+                            <input class="btn btn-info" type="submit" value="Submit" name='submit'>
+                        </td>
+                        </tr>
                     </table>
                 </form>
 
@@ -173,13 +164,12 @@ $me = "?page=$source";
 </div>
 
 <?php
-
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $loc = uploadFile('file');
     $first_seat = $_POST['first_seat'];
     $second_seat = $_POST['second_seat'];
-    if (!isset($name, $first_seat, $second_seat)) {
+    if (!isset($name, $loc, $first_seat, $second_seat)) {
         alert("Fill Form Properly!");
     } else {
         $conn = connect();
@@ -212,7 +202,7 @@ if (isset($_POST['edit'])) {
         if ($check == 2) {
             alert("Fasilitas sudah ada");
         } else {
-            $ins = $conn->prepare("UPDATE train SET name = ?, loc = ? first_seat = ?, second_seat = ? WHERE id = ?");
+            $ins = $conn->prepare("UPDATE train SET name = ?, loc = ?, first_seat = ?, second_seat = ? WHERE id = ?");
             $ins->bind_param("ssssi", $name, $loc, $first_seat, $second_seat, $id);
             $ins->execute();
             alert("Sukses!");

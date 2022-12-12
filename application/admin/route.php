@@ -51,7 +51,7 @@ $me = "?page=$source"
                                         <td><?php echo $fetch['start']; ?></td>
                                         <td><?php echo $fetch['stop'];
 
-                                                $fullname = $fetch['start'] . " to " . $fetch['stop']; ?></td>
+                                                $fullname = $fetch['start'] . " - " . $fetch['stop']; ?></td>
                                         <td>
                                             <form method="POST">
                                                 <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -74,7 +74,10 @@ $me = "?page=$source"
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title">Mengubah <?php echo $fullname; ?></h4>
+                                                    <h4 class="modal-title">Mengubah <?php echo $fullname;
+
+
+                                                                                        ?> </h4>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -102,10 +105,6 @@ $me = "?page=$source"
                                                                 name='edit'>
                                                         </p>
                                                     </form>
-                                                    <div class="modal-footer justify-content-between">
-                                                        <button type="button" class="btn btn-default"
-                                                            data-dismiss="modal">Tutup</button>
-                                                    </div>
                                                 </div>
                                                 <!-- /.modal-content -->
                                             </div>
@@ -160,7 +159,6 @@ $me = "?page=$source"
                         </tr>
                         <tr>
                             <td colspan="2">
-
                                 <input class="btn btn-info" type="submit" value="Submit" name='submit'>
                             </td>
                         </tr>
@@ -183,12 +181,12 @@ if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $start = $_POST['start'];
     $stop = $_POST['stop'];
-    if (!isset($name, $stop, $start)) {
+    if (!isset($stop, $start)) {
         alert("Fill Form Properly!");
     } else {
         $conn = connect();
 
-        $ins = $conn->prepare("INSERT INTO route (name, start,stop) VALUES (?, ?,?)");
+        $ins = $conn->prepare("INSERT INTO route (name,start,stop) VALUES (?,?,?)");
         $ins->bind_param("sss", $name, $start, $stop);
         $ins->execute();
         alert("Sukses!");
@@ -205,7 +203,7 @@ if (isset($_POST['edit'])) {
         alert("Fill Form Properly!");
     } else {
         $conn = connect();
-        $ins = $conn->prepare("UPDATE route SET name = ?, start = ?, stop = ? WHERE id = ?");
+        $ins = $conn->prepare("UPDATE route SET name=?, start = ?, stop = ? WHERE id = ?");
         $ins->bind_param("sssi", $name, $start, $stop, $id);
         $ins->execute();
         alert("Sukses!");

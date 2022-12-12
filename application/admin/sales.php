@@ -21,29 +21,26 @@ $source = 'payment';
                         <table id='example1' class="table table-striped table-bordered table-hover table-valign-middle">
                             <thead>
                                 <tr>
+                                    <th>Fasilitas</th>
                                     <th>Acara</th>
                                     <th>Tanggal</th>
-                                    <th>Weekday</th>
-                                    <th>Weekend</th>
-                                    <th>Kuota</th>
+                                    <th>Pendapatan</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $pay = $conn->query("SELECT *, schedule.id as id, schedule.date as date, schedule.time as time FROM schedule INNER JOIN payment ON schedule.id = payment.schedule_id");
+                                $pay = $conn->query("SELECT *, schedule.id as id, schedule.date as date FROM schedule INNER JOIN payment ON schedule.id = payment.schedule_id");
                                 $sn = 0;
 
                                 while ($val = $pay->fetch_assoc()) {
                                     $id = $val['id'];
                                     $array = getTotalBookByType($id);
-                                    // echo (($array['first'] - $array['first_booked'])), " Kuota Weekday" . "<hr/>" . ($array['second'] - $array['second_booked']) . " Kuota Weekend";
                                     $sn++;
                                     echo "<tr>
-                                      <td>" . getRoutePath($val['route_id']) . "</td>
-                                      <td>" . $val['date'] . " - " . formatTime($val['time']) . "</td>
-                                      <td>IDR " . sum($val['id'], 'first') . "</td>
-                                      <td>IDR " . sum($val['id'], 'second') . "</td>
-                                      <td>" . (($array['first'] - $array['first_booked'])), " Kuota Weekday" . "<hr/>" . ($array['second'] - $array['second_booked']) . " Kuota Weekend" . "</td>
+                                      <td>" . getTrainName($val['train_id']) . "</td>
+                                      <td>" . getRouteName($val['route_id']) . ' (' . getRoutePath($val['route_id']) . ')' . "</td>
+                                      <td>" . $val['date'] . "</td>
+                                      <td>IDR " . sum($val['id'], 'first') + sum($val['id'], 'second') . "</td>
                                       </tr>";
                                 }
                                 ?>

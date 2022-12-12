@@ -56,8 +56,6 @@ if (isset($_GET['status'], $_GET['id'])) {
                                             <td><?php echo ($fetch['phone']); ?></td>
                                             <td><img src="<?php echo "uploads/" . ($fetch['loc']); ?>"
                                                     class="img img-rounded" width="80" height="80" /></td>
-
-
                                             <td>
                                                 <?php
                                                     if ($fetch['status'] == 0) {

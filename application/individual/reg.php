@@ -22,13 +22,15 @@ $me = $_SESSION['user_id'];
                 <div class="card-body">
 
                     <table id="example1" style="align-items: stretch;"
-                        class="table table-hover w-100 table-bordered table-striped<?php //
-                                                                                                                                    ?>">
+                        class="table table-hover w-100 table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Fasilitas</th>
                                 <th>Foto</th>
+                                <th>Tanggal</th>
+                                <th>Sesi</th>
+                                <th>Harga</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -55,7 +57,19 @@ $me = $_SESSION['user_id'];
                                 <td><?php echo ++$sn; ?></td>
                                 <td><?php echo $fullname =  getTrainName($fetch['train_id']);?></td>
                                 <td>
-                                    <img src="<?php echo getTrainFoto($fetch['train_id']);?>">
+                                    <img src="<?php echo $loc = getTrainFoto($fetch['train_id']);?>">
+                                </td>
+                                <td><?php echo $fetch['date'] ?>
+                                </td>
+                                <td><?php echo $details = getRouteName($fetch['route_id']) . ' (' . getRouteFromSchedule($fetch['id']) . ')'?>
+                                </td>
+                                <td><?php
+                                $day = date('D', strtotime($fetch['date']));
+                                                        if ($day == "Sat" || $day == "Sun") {
+                                                            echo $price = 'IDR ' . ($fetch['first_fee']);
+                                                        } else {
+                                                            echo $price = 'IDR ' . ($fetch['second_fee']);
+                                                        }?></td>
                                 <td>
                                     <button type="button" class="btn btn-info" data-toggle="modal"
                                         data-target="#book<?php echo $id ?>">
@@ -78,25 +92,29 @@ $me = $_SESSION['user_id'];
 
                                             <form action="<?php echo $_SERVER['PHP_SELF'] . "?loc=$id" ?>"
                                                 method="post">
+                                                <p> Apakah anda sudah yakin dengan reservasi ini?
+                                                    <br><?php
+                                                    echo 'Fasilitas: ' . $fullname;
+                                                    ?><br><?php
+                                                    echo 'Sesi: ' . $details;?><br>
+                                                    <?php
+                                                    echo 'Harga: ' . $price;
+                                                    ?>
+                                                </p>
                                                 <input type="hidden" class="form-control" name="id"
-                                                    value="<?php echo $id ?>" required id="">
-
-                                                <p>Sesi :
-                                                    <input type="number" min='1' value="1"
-                                                        max='<?php echo $max_first >= $max_second ? $max_first : $max_second ?>'
-                                                        name="number" class="form-control" id="">
-                                                </p>
-                                                <p>Tipe :
-                                                    <select name="class" required class="form-control" id="">
-                                                        <option value="">-- Pilih Tipe --</option>
-                                                        <option value="first">Weekday (IDR
-                                                            <?php echo ($fetch['first_fee']); ?>)</option>
-                                                        <option value="second">Weekend (IDR
-                                                            <?php echo ($fetch['second_fee']); ?>)</option>
-                                                    </select>
-                                                </p>
+                                                    value="<?php echo $id ?>" required>
+                                                <input type="hidden" min='1' value="<?php echo (int)filter_var(getRouteName($fetch['route_id']), FILTER_SANITIZE_NUMBER_INT);
+                                                    ?>" name="number" class="form-control" required>
+                                                <input type="hidden" class="form-control" name="class" value="<?php
+                                                        $day = date('D', strtotime($fetch['date']));
+                                                        if ($day == "Sat" || $day == "Sun") {
+                                                            echo "first";
+                                                        } else {
+                                                            echo "second";
+                                                        }
+                                                        ?>" class="form-control" required>
                                                 <input type="submit" name="submit" class="btn btn-success"
-                                                    value="Proceed">
+                                                    value="Submit">
 
                                             </form>
 

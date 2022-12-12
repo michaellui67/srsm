@@ -389,7 +389,6 @@ function getImage($id, $conn)
   else
     return "uploads/" . $row['loc'];
 }
-
 function formatDate($date)
 {
   return date('d-m-Y', strtotime($date));
@@ -439,6 +438,11 @@ function getRouteFromSchedule($id)
 {
   $q = connect()->query("SELECT route_id as id FROM schedule WHERE id = '$id'")->fetch_assoc();
   return getRoutePath($q['id']);
+}
+function getRouteName($id)
+{
+  $val = connect()->query("SELECT name FROM route WHERE id = '$id'")->fetch_assoc();
+  return $val['name'];
 }
 
 function getFee($id, $type = 'second')
@@ -495,6 +499,12 @@ function getTrainName($id)
   $val = connect()->query("SELECT name FROM train WHERE id = '$id'")->fetch_assoc();
   return $val['name'];
 }
+function getTrainFoto($id)
+{
+  $val = connect()->query("SELECT loc FROM train WHERE id = '$id'")->fetch_assoc();
+  return "uploads/" . $val['loc'];
+}
+
 function alert($msg)
 {
   echo "<script>alert('$msg')</script>";
@@ -643,7 +653,7 @@ table th{font-weight:italic}
 <tr><th><b>Tanggal:</b></th><td>$date</td></tr>
 <tr><th><b>Waktu:</b></th><td>$time</td></tr>
 <tr><th colspan="2"  style="text-align:center"><b>Pembayaran</b></th></tr>
-<tr><th><b>Jumlah:</b></th><td>$ $amount</td></tr>
+<tr><th><b>Jumlah:</b></th><td>IDR $amount</td></tr>
 <tr><th><b>Tanggal Pembayaran:</b></th><td>$payment_date</td></tr>
 
 
